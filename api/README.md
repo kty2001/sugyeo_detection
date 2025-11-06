@@ -1,4 +1,4 @@
-# HnV SafetyEyes Project
+# HnV SafetyEyes Application API
 
 수계 및 사람 탐지를 위한 FastAPI 기반 백엔드 서버입니다.
 

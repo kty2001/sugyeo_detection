@@ -1,4 +1,4 @@
-# THz AI 처리 시스템 프론트엔드
+# HnV SafetyEyes Application Frontend
 
 수계 및 사람 탐지를 위한 React 기반 프론트엔드 애플리케이션입니다.
 
