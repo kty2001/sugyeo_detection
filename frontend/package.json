@@ -1,0 +1,112 @@
+{
+  "name": "sugyeo-frontend",
+  "version": "0.0.6",
+  "private": true,
+  "main": "main.js",
+  "homepage": ".",
+  "author": "HnV SafetyEyes",
+  "description": "HnV Drone AI Processing System",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "electron"
+    ]
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.4.0",
+    "call-bind-apply-helpers": "^1.0.2",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron-is-dev": "^2.0.0",
+    "pnpm": "^10.12.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-dropzone": "^14.2.3",
+    "react-icons": "^4.10.1",
+    "react-router-dom": "^6.14.1",
+    "recharts": "^2.7.2",
+    "wait-on": "^7.2.0",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "10.4.16",
+    "electron": "^24.8.8",
+    "electron-builder": "^25.1.8",
+    "eslint": "^8.0.0",
+    "eslint-config-react-app": "^7.0.1",
+    "postcss": "8.4.31",
+    "react-app-rewired": "^2.2.1",
+    "react-scripts": "^5.0.1",
+    "tailwindcss": "3.3.0"
+  },
+  "scripts": {
+    "start": "cross-env PORT=9879 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "electron:dev": "concurrently \"cross-env BROWSER=none PORT=9879 pnpm start\" \"wait-on http://localhost:9879 && cross-env NODE_ENV=development electron .\"",
+    "electron:build": "pnpm run build && electron-builder build --win --publish never",
+    "electron:portable": "pnpm run build && electron-builder build --win portable --publish never --config.win.signAndEditExecutable=false",
+    "electron:serve": "concurrently -k \"cross-env BROWSER=none PORT=9879 pnpm start\" \"electron .\"",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "proxy": "http://localhost:8000",
+  "build": {
+    "appId": "com.sugyeo.viewer",
+    "icon": "build/favicon.ico",
+    "productName": "Sugyeo Detection",
+    "files": [
+      "main.js",
+      "build/**/*",
+      "package.json",
+      "node_modules/**/*",
+      "server/**/*"
+    ],
+    "directories": {
+      "buildResources": "build",
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/favicon.ico",
+      "signAndEditExecutable": true
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "deleteAppDataOnUninstall": true,
+      "shortcutName": "HnV SafetyEyes System",
+      "installerIcon": "build/favicon.ico",
+      "uninstallerIcon": "build/favicon.ico"
+    },
+    "electronVersion": "24.8.8",
+    "asar": false,
+    "asarUnpack": [
+      "node_modules/**/*",
+      "server/**/*",
+      "models/**/*"
+    ],
+    "extends": null
+  }
+}

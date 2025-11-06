@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-textPrimary font-['Noto_Sans_KR'];
+  }
+
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  a {
+    @apply no-underline text-inherit;
+  }
+
+  button, input, select, textarea {
+    @apply font-['Noto_Sans_KR'] text-inherit border-none outline-none;
+  }
+
+  button {
+    @apply cursor-pointer bg-transparent;
+  }
+
+  ul, ol {
+    @apply list-none;
+  }
+
+  img {
+    @apply max-w-full h-auto;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md transition-all duration-fast;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-opacity-90;
+  }
+
+  .card {
+    @apply bg-surface rounded-md shadow-md;
+  }
+
+  .input {
+    @apply bg-surface border border-border rounded-md px-3 py-2 focus:border-primary;
+  }
+} 

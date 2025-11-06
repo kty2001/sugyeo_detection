@@ -1,0 +1,15 @@
+# ignore dicrectory
+.venv
+node_modules
+build
+dist
+server
+images
+results
+uploads
+__pycache__
+
+# ignore file
+*.onnx
+.spec
+*.pyc
